@@ -23,7 +23,10 @@ Where ![](images/k.png) is the strike price and ![](images/sn.png) is the spot p
 
 3. **Sequential valuation of option at each preceding node**\
 Starting at the penultimate node and working back to the root node, the option value is computed to be the greater of the expectation and intrinsic values at the node. The following formula is used to compute the expectation value:
+
 <p align="center"><img src="images/vequals.png"></p>
+
+Where ![](images/vnt.png) is value of the option at the ![](images/nth.png) node at time interval ![](images/t.png) and ![](images/p.png) is the probability that the price of the underlying instrument moves up.
 
 
 
