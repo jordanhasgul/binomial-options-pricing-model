@@ -13,8 +13,7 @@ Option valuation using this method is described as follows:
 1. **Generation of binomial price tree**\
 At each interval, it is assumed that the price of the underlying instrument, ![](images/s0.png), will move up or down by a specific factor, ![](images/uequals.png) or ![](images/dequals.png), respectively. Where ![](images/volatility.png) represents the implied volatility of the underlying instrument, ![](images/dt.png) represents the time duration of a step.\
 \
-Therefore, the spot price, ![](images/sn.png), of the underlying instrument at the ![](images/nth.png) period can be calculated directly via ![](images/snequals.png). Where ![](images/i.png) and ![](images/j.png) denote the number of times the price of the underlying instrument has moved up or down, respectively.
-
+The spot price, ![](images/sn.png), of the underlying instrument at the ![](images/nth.png) period is dependent on the number of times the price of the underlying instrument has moved up or down, denoted by ![](images/i.png) and ![](images/j.png) respectively. Therefore, ![](images/sn.png) can be calculated directly via ![](images/snequals.png). 
 
 2. **Valuation of option at each final node**\
 At each leaf node of the binomial tree (i.e. at expiration of the option), the option value is simply its intrinsic value:\
