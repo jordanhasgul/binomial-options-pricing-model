@@ -16,14 +16,14 @@ At each interval, it is assumed that the price of the underlying instrument, ![]
 The spot price, ![](images/sn.png), of the underlying instrument at the ![](images/nth.png) period is dependent on the number of times the price of the underlying instrument has moved up or down, denoted by ![](images/i.png) and ![](images/j.png) respectively. Therefore, ![](images/sn.png) can be calculated directly via ![](images/snequals.png). 
 
 2. **Valuation of option at each final node**\
-At each leaf node of the binomial tree (i.e. at expiration of the option), the option value is simply its intrinsic value:\
+At each final node of the binomial tree (i.e. at expiration of the option), the option value is simply its intrinsic value:\
 &nbsp;&nbsp;&nbsp;&nbsp;![](images/call.png), for a call option.\
 &nbsp;&nbsp;&nbsp;&nbsp;![](images/put.png), for a put option.\
 Where ![](images/k.png) is the strike price and ![](images/sn.png) is the spot price of the underlying asset at the the ![](images/nth.png) period.
 
 3. **Sequential valuation of option at each preceding node**\
-The option value is then computed at each node, starting at the penultimate interval and working back to the valuation date (i.e. the root node in the tree). 
+Starting at the penultimate node and working back to the root node, the option value is computed to be the greater of the expectation and intrinsic values at the node. The following formula is used to compute the expectation value:
+<p align="center"><img src="images/vequals.png"></p>
 
-The expectation value is computed at each node, starting at the penultimate interval and working back to the valuation date, using the following formula:\
 
 
