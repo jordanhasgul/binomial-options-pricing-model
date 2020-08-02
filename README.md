@@ -22,7 +22,11 @@ At each final node of the binomial tree (i.e. at expiration of the option), the 
 Where ![](images/k.png) is the strike price and ![](images/sn.png) is the spot price of the underlying asset at the the ![](images/nth.png) period.
 
 3. **Sequential valuation of option at each preceding node**\
-Starting at the penultimate node and working back to the root node, the option value is computed to be the greater of the expectation, ![](images/vequals.png), and intrinsic values at the node. Where ![](images/vnt.png) is value of the option at the ![](images/nth.png) node at time interval ![](images/t.png), ![](images/r.png) is the risk-free rate and ![](images/p.png) is the probability that the price of the underlying instrument moves up.
+Starting at the penultimate node and working back to the root node, the option value is computed to be the greater of the expectation and intrinsic values at the node. The expectation value is given by:
+
+<p align="center"><img src="images/vequals.png"></p>
+
+Where ![](images/vnt.png) is value of the option at the ![](images/nth.png) node at time interval ![](images/t.png), ![](images/r.png) is the risk-free rate and ![](images/p.png) is the probability that the price of the underlying instrument moves up.
 
 
 
