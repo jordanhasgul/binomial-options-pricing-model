@@ -15,7 +15,10 @@ At each interval, it is assumed that the price of the underlying instrument, ![]
 
 
 2. **Valuation of option at each final node**\
-
+At each final node of the binomial tree (i.e. at expiration of the option), the option value is simply its intrinsic value:\
+![](images/call.png), for a call option\
+![](images/put.png), for a put option\
+Where ![](images/k.png) is the strike price and ![](images/sn.png) in the spot price of the underlying asset at the the ![](images/nth.png) period.
 
 3. **Sequential valuation of option at each preceding node**\
 
