@@ -11,7 +11,7 @@ The binomial options pricing model traces the evolution of an options underlying
 Option valuation using this method is described as follows:
 
 1. **Generation of binomial price tree**\
-At each interval, it is assumed that the price of the underlying instrument, ![](images/s0.png), will move up or down by a specific factor, ![](images/u.png) or ![](images/d.png), respectively. Where ![](images/uequals.png) and ![](images/dequals.png). Therefore, the spot price, ![](images/sn.png), of the underlying instrument at the ![](images/nth.png) period can be calculated directly via ![](images/snequals.png).
+At each interval, it is assumed that the price of the underlying instrument, ![](images/s0.png), will move up or down by a specific factor, ![](images/uequals.png) or ![](images/dequals.png), respectively. Where ![](images/volatility.png) represents the implied volatility of the underlying instrument  . Therefore, the spot price, ![](images/sn.png), of the underlying instrument at the ![](images/nth.png) period can be calculated directly via ![](images/snequals.png).
 
 
 2. **Valuation of option at each final node**\
