@@ -1,6 +1,6 @@
-#include "BinomialTree.h"
+#include "BinomialLattice.h"
 
-BinomialTree::BinomialTree(const uint16_t& p_timeIntervals, const Option& p_option)
+BinomialLattice::BinomialLattice(const uint16_t& p_timeIntervals, const Option& p_option)
 	: m_timeIntervals(p_timeIntervals), m_option(p_option)
 {
 	m_dt = p_option.getTimeToExpiration() / p_timeIntervals;
@@ -8,13 +8,13 @@ BinomialTree::BinomialTree(const uint16_t& p_timeIntervals, const Option& p_opti
 	m_down = std::exp(-p_option.getVolatility() * std::sqrt(m_dt));
 	m_probability = (std::exp((p_option.getRiskFreeRate() - p_option.getDividendYield()) * m_dt) - m_down) / (m_up - m_down);
 
-	m_tree = new BinomialTreeNode*[m_timeIntervals];
+	m_tree = new BinomialLatticeNode*[m_timeIntervals];
 	for (int i = 0; i < m_timeIntervals; ++i)
 	{ 
-		m_tree[i] = new BinomialTreeNode[i + 1];
+		m_tree[i] = new BinomialLatticeNode[i + 1];
 	}
 }
-BinomialTree::~BinomialTree()
+BinomialLattice::~BinomialLattice()
 {
 	for (int i = 0; i < m_timeIntervals; ++i)
 	{
@@ -24,16 +24,16 @@ BinomialTree::~BinomialTree()
 	delete[] m_tree;
 }
 
-const double& BinomialTree::calculateIntrinsicValue(const double& p_spotPrice, const double& p_strikePrice) const
+const double& BinomialLattice::calculateIntrinsicValue(const double& p_spotPrice, const double& p_strikePrice) const
 {
 	return (m_option.getOptionType() == OptionType::CALL_OPTION) ? std::max(p_spotPrice - p_strikePrice, 0.0) : std::max(p_strikePrice - p_spotPrice, 0.0);
 }
-const double& BinomialTree::calculateExpectationValue(const double& p_optionValueUp, const double& p_optionValueDown) const
+const double& BinomialLattice::calculateExpectationValue(const double& p_optionValueUp, const double& p_optionValueDown) const
 {
 	return std::exp(-m_option.getRiskFreeRate() * m_dt) * (m_probability * p_optionValueUp + (1 - m_probability) * p_optionValueDown);
 }
 
-void BinomialTree::createPriceTree()
+void BinomialLattice::createPriceTree()
 {
 	double time = 0.0;
 
@@ -47,9 +47,9 @@ void BinomialTree::createPriceTree()
 		}
 	}
 }
-void BinomialTree::createValueTree()
+void BinomialLattice::createValueTree()
 {
-	BinomialTreeNode* node;
+	BinomialLatticeNode* node;
 	for (int j = 0; j < m_timeIntervals; ++j)
 	{
 		node = &m_tree[m_timeIntervals - 1][j];
@@ -70,7 +70,7 @@ void BinomialTree::createValueTree()
 	}
 }
 
-const double& BinomialTree::computeOptionValue()
+const double& BinomialLattice::computeOptionValue()
 {
 	createPriceTree();
 	createValueTree();

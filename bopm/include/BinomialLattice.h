@@ -5,16 +5,16 @@
 
 #include "Option.h"
 
-class BinomialTree
+class BinomialLattice
 {
-	struct BinomialTreeNode
+	struct BinomialLatticeNode
 	{
 		double time;
 		double assetPrice, optionValue;
 	};
 
 private:
-	BinomialTreeNode** m_tree;
+	BinomialLatticeNode** m_tree;
 	uint16_t m_timeIntervals;
 
 	Option m_option;
@@ -31,8 +31,8 @@ private:
 	void createValueTree();
 
 public:
-	BinomialTree(const uint16_t& p_timeIntervals, const Option& p_option);
-	~BinomialTree();
+	BinomialLattice(const uint16_t& p_timeIntervals, const Option& p_option);
+	~BinomialLattice();
 
 	const double& computeOptionValue();
 };

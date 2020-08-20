@@ -1,5 +1,6 @@
 #include <iostream>
-#include "BinomialTree.h"
+
+#include "BinomialLattice.h"
 
 int main()
 {
@@ -31,7 +32,7 @@ int main()
 
 	Option option(optionType, spotPrice, strikePrice, volatility, riskFreeRate, dividendYield, timeToExpiration);
 	
-	BinomialTree binomialTree(timeIntervals, option);
+	BinomialLattice binomialTree(timeIntervals, option);
 	std::cout << binomialTree.computeOptionValue();
 	return 0;
 }

@@ -15,18 +15,18 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\BinomialTree.h">
+    <ClInclude Include="include\Option.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Option.h">
+    <ClInclude Include="include\BinomialLattice.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\BinomialTree.cpp">
+    <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="src\BinomialLattice.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
